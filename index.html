@@ -144,19 +144,26 @@
         }
 
         .grid-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(255, 0, 0, 0.1);
+            background-color: #d3d3d3; /* Set card background to white */
+            border-radius: 8px; /* Rounded corners */
+            padding: 1rem; /* Padding inside the card */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .grid-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly darker shadow on hover */
         }
+
+        .services-column .grid-item {
+            margin-bottom: 1rem; /* Add space below each item */
+            padding: 1rem; /* Add padding inside each item */
+        }
+        
+        .services-column .grid-item:last-child {
+            margin-bottom: 0; /* Remove bottom margin for the last item */
+        }        
 
         footer {
             background-color: var(--background-color);
@@ -219,28 +226,36 @@
             background-image: url('images/home-bg.png');
         }
 
-        #intro::before {
-            background-image: url('images/intro-bg.jpeg');
-        }
-
-        #services::before {
-            background-image: url('images/services-bg.jpg');
-        }
-
-        #projects::before {
-            background-image: url('images/projects-bg.jpeg');
-        }
-
+        #intro::before,
+        #services::before,
+        #projects::before,
         #about::before {
-            background-image: url('images/about-bg.jpeg');
+            background-color: #ffffff; /* Set a white background */
+            background-image: none; /* Remove existing background image */
+            opacity:100;
         }
+
+        #intro, #services, #projects, #about {
+            color: #000000; /* Set text color to black */
+        }      
 
         @media screen and (max-width: 767px) {
-            #intro-video {
-                object-fit: contain;
-                background-color: black;
+            nav {
+                display: none;
+                animation: slideDown 0.3s ease forwards; /* Add animation */
             }
-        }
+        
+            @keyframes slideDown {
+                from {
+                    transform: translateY(-20px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        }        
 
         /* Media query for larger screens */
         @media screen and (min-width: 768px) {
@@ -289,6 +304,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 max-width: 900px;
+                margin: 0 auto;
             }
 
             .services-column {
@@ -410,8 +426,12 @@
             const sections = document.querySelectorAll('section');
 
             menuToggle.addEventListener('click', function() {
-                nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-            });
+                if (nav.style.display === 'block') {
+                    nav.style.display = 'none';
+                } else {
+                    nav.style.display = 'block';
+                }
+            });            
 
             function checkVisibility() {
                 sections.forEach(section => {
