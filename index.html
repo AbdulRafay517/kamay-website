@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMAY</title>
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #ffffff;
+            --background-color: #000000;
+            --text-color: #ffffff;
+            --overlay-color: rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        header {
+            background-color: var(--background-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 40px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        #menu-toggle {
+            display: block;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        section.visible::before {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .services-column {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .services-divider {
+            display: none;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(255, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: var(--background-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: var(--secondary-color);
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            display: block;
+            padding-top: 60px; /* Adjust based on your header height */
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        section > * {
+            opacity: 1;
+            transform: none;
+        }
+
+        section.visible > * {
+            animation: slideUp 0.5s forwards;
+        }
+
+        section.visible > *:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        section.visible > *:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        
+        #home::before {
+            background-image: url('images/home-bg.png');
+        }
+
+        #intro::before {
+            background-image: url('images/intro-bg.jpeg');
+        }
+
+        #services::before {
+            background-image: url('images/services-bg.jpg');
+        }
+
+        #projects::before {
+            background-image: url('images/projects-bg.jpeg');
+        }
+
+        #about::before {
+            background-image: url('images/about-bg.jpeg');
+        }
+
+        @media screen and (max-width: 767px) {
+            #intro-video {
+                object-fit: contain;
+                background-color: black;
+            }
+        }
+
+        /* Media query for larger screens */
+        @media screen and (min-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                margin: 0;
+                height: 50px;
+            }
+
+            nav {
+                display: block;
+                margin-top: 0;
+            }
+
+            nav ul {
+                display: flex;
+            }
+
+            nav ul li {
+                margin-left: 2rem;
+                margin-bottom: 0;
+            }
+
+            #menu-toggle {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 900px;
+            }
+
+            .services-column {
+                width: 45%;
+            }
+
+            .services-divider {
+                display: block;
+                width: 1px;
+                background-color: var(--primary-color);
+                margin: 0 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>  
+    <header>
+        <img src="images/logo_v3.png" alt="Kamay Logo" class="logo">
+        <div id="menu-toggle">&#9776;</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1 class="depth-of-field">Welcome to KAMAY</h1>
+            <p class="depth-of-field">Where vision meets innovation</p>
+        </section>
+
+        <section id="intro">
+            <h2 class="depth-of-field">Introduction to Our Company</h2>
+            <p class="depth-of-field">We are an innovative company focused on solving real-world problems across various sectors.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="services-column">
+                    <h3>Technical</h3>
+                    <div class="grid-item">
+                        <h4>Solar & Energy</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Developers (IT)</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Engineering (Project)</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Agency</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Solutions</h4>
+                    </div>
+                </div>
+                <div class="services-divider"></div>
+                <div class="services-column">
+                    <h3>Non-Technical</h3>
+                    <div class="grid-item">
+                        <h4>Real Estate</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Management</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Import/Export</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Digital Marketing</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Tours & Travels</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Retailers</h4>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Luxury</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Our Projects</h2>
+            <p>Check out some of our successful projects here.</p>
+            <!-- Add project details or grid here -->
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Learn more about our team and our mission to revolutionize multiple industries.</p>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Contact Us</h3>
+        <p>Email: info@kamay.com | Phone: +92 123 4567890</p>
+        <div class="social-media">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const menuToggle = document.getElementById('menu-toggle');
+            const nav = document.querySelector('nav');
+            const sections = document.querySelectorAll('section');
+
+            menuToggle.addEventListener('click', function() {
+                nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+            });
+
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5);
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility(); // Call initially to set visibility
+        });
+    </script>
+</body>
+</html>
