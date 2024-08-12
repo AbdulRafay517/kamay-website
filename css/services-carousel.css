@@ -1,3 +1,41 @@
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.services-column {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.services-divider {
+    display: none;
+}
+
+.grid-item {
+    background-color: #d3d3d3; /* Set card background to white */
+    border-radius: 8px; /* Rounded corners */
+    padding: 1rem; /* Padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly darker shadow on hover */
+}
+
+.services-column .grid-item {
+    margin-bottom: 1rem; /* Add space below each item */
+    padding: 1rem; /* Add padding inside each item */
+}
+
+.services-column .grid-item:last-child {
+    margin-bottom: 0; /* Remove bottom margin for the last item */
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -21,18 +59,17 @@
     list-style-type: none;
     padding: 0;
     display: flex;
+    justify-content: space-around;
     border-bottom: 2px solid #ccc;
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: space-between; /* Distribute items evenly */
 }
 
 .services-list li {
-    flex: 1 1 100%; /* Make each item take up full width by default */
+    flex: 1;
     text-align: center;
     padding: 10px;
     cursor: pointer;
     position: relative;
-    font-size: 16px; /* Adjust font size for mobile */
+    transition: color 0.3s ease-in-out;
 }
 
 .services-list li.active {
@@ -53,7 +90,7 @@
     display: none;
     padding: 20px;
     background-color: #f9f9f9;
-    transition: opacity 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .service-content.active {
