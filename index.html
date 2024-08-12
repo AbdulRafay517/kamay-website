@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="css/services-carousel.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAMAY</title>
@@ -347,50 +348,84 @@
             <p class="depth-of-field">We are an innovative company focused on solving real-world problems across various sectors.</p>
         </section>
 
+        <!-- Services Section -->
         <section id="services">
             <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="services-column">
-                    <h3>Technical</h3>
-                    <div class="grid-item">
-                        <h4>Solar & Energy</h4>
+
+            <!-- Technical Services Subsection -->
+            <div class="technical-services" style="padding-bottom: 40px;"> <!-- Add padding here -->
+                <h3>Technical Services</h3>
+                <div class="services-container">
+                    <ul class="services-list">
+                        <li class="active" data-service="solar">Solar & Energy</li>
+                        <li data-service="it">Developers (IT)</li>
+                        <li data-service="engineering">Engineering (Projects)</li>
+                        <li data-service="technical">Technical Solutions</li>
+                    </ul>
+                    <div class="service-content active" id="solar">
+                        <div class="service-icon">☀️</div>
+                        <h3 class="service-title">Solar & Energy</h3>
+                        <p class="service-description">Innovative solar and energy solutions for a sustainable future.</p>
                     </div>
-                    <div class="grid-item">
-                        <h4>Developers (IT)</h4>
+                    <div class="service-content" id="it">
+                        <div class="service-icon">💻</div>
+                        <h3 class="service-title">Developers (IT)</h3>
+                        <p class="service-description">Expert IT development services for cutting-edge software solutions.</p>
                     </div>
-                    <div class="grid-item">
-                        <h4>Engineering (Project)</h4>
+                    <div class="service-content" id="engineering">
+                        <div class="service-icon">🔧</div>
+                        <h3 class="service-title">Engineering (Projects)</h3>
+                        <p class="service-description">Tailored engineering solutions for complex projects across various industries.</p>
                     </div>
-                    <div class="grid-item">
-                        <h4>Agency</h4>
-                    </div>
-                    <div class="grid-item">
-                        <h4>Solutions</h4>
+                    <div class="service-content" id="technical">
+                        <div class="service-icon">🛠️</div>
+                        <h3 class="service-title">Technical Solutions</h3>
+                        <p class="service-description">Comprehensive technical support and solutions for your business needs.</p>
                     </div>
                 </div>
-                <div class="services-divider"></div>
-                <div class="services-column">
-                    <h3>Non-Technical</h3>
-                    <div class="grid-item">
-                        <h4>Real Estate</h4>
+            </div>
+
+            <!-- Non-Technical Services Subsection -->
+            <div class="non-technical-services">
+                <h3>Non-Technical Services</h3>
+                <div class="services-container">
+                    <ul class="services-list">
+                        <li class="active" data-service="realestate-2">Real Estate</li>
+                        <li data-service="event">Event Management</li>
+                        <li data-service="import-export">Import / Export</li>
+                        <li data-service="marketing">Digital Marketing</li>
+                        <li data-service="tours">Tours & Travels</li>
+                        <li data-service="retail">Retailers</li>
+                    </ul>
+                    <div class="service-content active" id="realestate-2">
+                        <div class="service-icon">🏠</div>
+                        <h3 class="service-title">Real Estate</h3>
+                        <p class="service-description">Comprehensive real estate services for buyers, sellers, and investors.</p>
                     </div>
-                    <div class="grid-item">
-                        <h4>Management</h4>
+                    <div class="service-content" id="event">
+                        <div class="service-icon">🎉</div>
+                        <h3 class="service-title">Event Management</h3>
+                        <p class="service-description">Expert event planning and management for memorable experiences.</p>
                     </div>
-                    <div class="grid-item">
-                        <h4>Import/Export</h4>
+                    <div class="service-content" id="import-export">
+                        <div class="service-icon">📦</div>
+                        <h3 class="service-title">Import / Export</h3>
+                        <p class="service-description">Streamlined import and export services to expand your business globally.</p>
                     </div>
-                    <div class="grid-item">
-                        <h4>Digital Marketing</h4>
+                    <div class="service-content" id="marketing">
+                        <div class="service-icon">📈</div>
+                        <h3 class="service-title">Digital Marketing</h3>
+                        <p class="service-description">Strategic digital marketing solutions to boost your online presence.</p>
                     </div>
-                    <div class="grid-item">
-                        <h4>Tours & Travels</h4>
+                    <div class="service-content" id="tours">
+                        <div class="service-icon">✈️</div>
+                        <h3 class="service-title">Tours & Travels</h3>
+                        <p class="service-description">Customized tour and travel packages for unforgettable experiences.</p>
                     </div>
-                    <div class="grid-item">
-                        <h4>Retailers</h4>
-                    </div>
-                    <div class="grid-item">
-                        <h4>Luxury</h4>
+                    <div class="service-content" id="retail">
+                        <div class="service-icon">🛒</div>
+                        <h3 class="service-title">Retailers</h3>
+                        <p class="service-description">Comprehensive solutions for retail businesses, from strategy to execution.</p>
                     </div>
                 </div>
             </div>
@@ -424,15 +459,19 @@
             const menuToggle = document.getElementById('menu-toggle');
             const nav = document.querySelector('nav');
             const sections = document.querySelectorAll('section');
-
+            const serviceItems = document.querySelectorAll('.services-list li');
+            const serviceContents = document.querySelectorAll('.service-content');
+        
+            let lastActiveService = null;
+        
             menuToggle.addEventListener('click', function() {
                 if (nav.style.display === 'block') {
                     nav.style.display = 'none';
                 } else {
                     nav.style.display = 'block';
                 }
-            });            
-
+            });
+        
             function checkVisibility() {
                 sections.forEach(section => {
                     const rect = section.getBoundingClientRect();
@@ -444,10 +483,35 @@
                     }
                 });
             }
-
+        
             window.addEventListener('scroll', checkVisibility);
             checkVisibility(); // Call initially to set visibility
-        });
+
+            serviceItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const service = this.getAttribute('data-service');
+                    
+                    // Find the closest .services-container to determine the current carousel
+                    const parentContainer = this.closest('.services-container');
+                    const relevantContents = parentContainer.querySelectorAll('.service-content');
+                    const relevantItems = parentContainer.querySelectorAll('.services-list li');
+        
+                    // Remove active class from all sections within this carousel
+                    relevantItems.forEach(i => i.classList.remove('active'));
+                    relevantContents.forEach(c => c.classList.remove('active'));
+        
+                    // Add active class to the clicked item and its corresponding content
+                    this.classList.add('active');
+                    document.getElementById(service).classList.add('active');
+                });
+            });
+        
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.services-container') && lastActiveService) {
+                    lastActiveService.classList.add('active'); // Reopen last active service
+                }
+            });
+        });        
     </script>
 </body>
 </html>

@@ -1,0 +1,106 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.services-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.services-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    border-bottom: 2px solid #ccc;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-between; /* Distribute items evenly */
+}
+
+.services-list li {
+    flex: 1 1 100%; /* Make each item take up full width by default */
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    font-size: 16px; /* Adjust font size for mobile */
+}
+
+.services-list li.active {
+    font-weight: bold;
+}
+
+.services-list li.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff0000;
+}
+
+.service-content {
+    display: none;
+    padding: 20px;
+    background-color: #f9f9f9;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.service-content.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in-out; /* Add animation on switch */
+}
+
+.service-content:not(.active) {
+    opacity: 0.5; /* Dim the non-active content */
+}
+
+.service-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.service-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 16px;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .services-list {
+        flex-direction: column; /* Stack the items vertically */
+        align-items: center;
+    }
+
+    .services-list li {
+        flex: 1 1 auto; /* Allow items to grow and shrink */
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+
+    .service-icon {
+        font-size: 36px; /* Smaller icon size on mobile */
+    }
+
+    .service-title {
+        font-size: 20px; /* Smaller title size on mobile */
+    }
+
+    .service-description {
+        font-size: 14px; /* Smaller description size on mobile */
+    }
+}
