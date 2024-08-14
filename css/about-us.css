@@ -8,7 +8,7 @@ body {
     padding: 50px 20px;
 }
 
-h2 {
+#about-us::h2 {
     color: #333;
     margin-bottom: 10px;
 }
