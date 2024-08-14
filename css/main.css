@@ -183,13 +183,13 @@ section.visible > *:nth-child(3) {
 #intro::before,
 #services::before,
 #projects::before,
-#about::before {
+#about-us::before{
     background-color: #ffffff; /* Set a white background */
     background-image: none; /* Remove existing background image */
     opacity:100;
 }
 
-#intro, #services, #projects, #about {
+#intro, #services, #projects, #about-us {
     color: #000000; /* Set text color to black */
 }      
 
