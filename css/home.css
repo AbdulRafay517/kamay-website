@@ -1,0 +1,8 @@
+#home
+{
+    height: 100vh;
+}
+
+#home::before {
+    background-image: url('../images/home-bg.jpg');
+}
