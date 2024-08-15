@@ -111,7 +111,6 @@ section {
     opacity: 0;
     transform: translateY(20px);
     padding-top: 80px; /* Adjust this value based on your header height */
-    margin-top: -80px; /* This offsets the padding to keep the visual layout intact */
 }
 
 section.visible {
