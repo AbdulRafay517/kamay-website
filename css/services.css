@@ -1,3 +1,24 @@
+#services {
+    position: relative;
+    padding: 60px 20px;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+    background-image: url('../images/services-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#services .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.80); /* 50% black overlay */
+    z-index: 0;
+}
+
 .services-grid {
     display: flex;
     flex-direction: column;
@@ -15,11 +36,13 @@
 }
 
 .grid-item {
-    background-color: #d3d3d3; /* Set card background to white */
+    background-color: #ffffff; /* Set card background to white */
     border-radius: 8px; /* Rounded corners */
     padding: 1rem; /* Padding inside the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 2; /* Ensure grid items appear above the overlay */
 }
 
 .grid-item:hover {
@@ -53,6 +76,8 @@
     margin: 0 auto;
     font-family: Arial, sans-serif;
     padding: 20px;
+    position: relative;
+    z-index: 2; /* Ensure the content appears above the overlay */
 }
 
 .services-list {
@@ -61,6 +86,8 @@
     display: flex;
     justify-content: space-around;
     border-bottom: 2px solid #ccc;
+    position: relative;
+    z-index: 2; /* Ensure the list appears above the overlay */
 }
 
 .services-list li {
@@ -74,6 +101,7 @@
 
 .services-list li.active {
     font-weight: bold;
+    color: #ff0000;
 }
 
 .services-list li.active::after {
@@ -89,8 +117,12 @@
 .service-content {
     display: none;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Apply the blur effect */
     animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+    z-index: 2; /* Ensure content appears above the overlay */
+    border-radius: 10px; /* Optional: add some rounding to the corners */
 }
 
 .service-content.active {
@@ -106,15 +138,18 @@
 .service-icon {
     font-size: 48px;
     margin-bottom: 10px;
+    color: #ffcc00; /* Set a contrasting color for icons */
 }
 
 .service-title {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .service-description {
     font-size: 16px;
+    color: #cccccc; /* Set a lighter color for descriptions */
 }
 
 /* Media Query for Mobile */
