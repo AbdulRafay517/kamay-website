@@ -6,11 +6,20 @@ body {
 #about-us {
     text-align: center;
     padding: 50px 20px;
+    background-color: #000000;
+    color: #ffffff;
 }
 
-#about-us::h2 {
-    color: #333;
-    margin-bottom: 10px;
+
+.social-media b {
+    margin: 0 10px;
+    color: var(--text-color);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-media :hover {
+    color: var(--primary-color);
 }
 
 .team-container {
@@ -22,19 +31,48 @@ body {
 }
 
 .team-member {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
     width: 250px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.team-member::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Match the background color of the card */
+    filter: blur(10px);
+    z-index: -1;
+    opacity: 0.6;
+}
+
 
 .team-member img {
     width: 100%;
-    height: 280px; /* This is approximately 3/4 of the card height */
+    height: 280px;
     object-fit: cover;
+}
+
+.team-member-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    transform: scale(1.1); /* Optional: Scale the blurred image to make it larger */
+    z-index: -1;
+}
+
+.team-member img + img.team-member-blur {
+    opacity: 0.6; /* Adjust opacity to control the visibility of the blur effect */
 }
 
 .team-member-info {
@@ -47,12 +85,12 @@ body {
 
 .team-member h3 {
     margin: 0;
-    color: #333;
+    color: #fff;
     font-size: 18px;
 }
 
 .team-member p {
-    color: #666;
+    color: #ffffff;
     margin-top: 5px;
     font-size: 14px;
 }
