@@ -1,32 +1,33 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const nav = document.querySelector('nav');
     const sections = document.querySelectorAll('section');
-    const serviceItems = document.querySelectorAll('.services-list li');
-    const serviceContents = document.querySelectorAll('.service-content');
 
-    let lastActiveService = null;
-
+    // Toggle navigation menu visibility
     menuToggle.addEventListener('click', function() {
-        if (nav.style.display === 'block') {
-            nav.style.display = 'none';
-        } else {
-            nav.style.display = 'block';
-        }
+        nav.classList.toggle('open'); // Use class to control visibility
     });
 
-    function checkVisibility() {
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const isVisible = (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5);
-            if (isVisible) {
-                section.classList.add('visible');
+    // Intersection Observer setup
+    const observerOptions = {
+        root: null, // Observe intersections relative to the viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger the callback when 10% of the section is visible
+    };
+
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             } else {
-                section.classList.remove('visible');
+                entry.target.classList.remove('visible');
             }
         });
-    }
+    };
 
-    window.addEventListener('scroll', checkVisibility);
-    checkVisibility(); // Call initially to set visibility
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 });
