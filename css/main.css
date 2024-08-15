@@ -18,20 +18,21 @@ body {
     font-style: normal;
     color: var(--text-color);
     background-color: var(--background-color);
+    padding-top: 70px; /* Adjust padding-top to account for header height */
 }
 
 header {
-    background-color: transparent;
-    padding: 1rem;
+    background-color: #000; /* Set header background color to black */
+    padding: 1rem 2rem; /* Add padding to the header */
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Ensure it's on top of other content */
     transition: background-color 0.5s ease-in-out;
 }
 
 header.scrolled {
-    background-color: black;
+    background-color: #000; /* Black background when scrolled */
 }
 
 .logo {
@@ -109,6 +110,8 @@ section {
     will-change: opacity, transform;
     opacity: 0;
     transform: translateY(20px);
+    padding-top: 80px; /* Adjust this value based on your header height */
+    margin-top: -80px; /* This offsets the padding to keep the visual layout intact */
 }
 
 section.visible {
@@ -175,13 +178,13 @@ footer {
     transition: color 0.5s ease-in-out;
 }
 
-social-media a:hover {
+.social-media a:hover {
     color: var(--primary-color);
 }
 
 main {
     display: block;
-    padding-top: 60px;
+    padding-top: 700px; /* Ensure content is not hidden behind fixed header */
 }
 
 @keyframes slideUp {
@@ -217,6 +220,12 @@ section.visible > *:nth-child(3) {
 @media screen and (max-width: 768px) {
     #menu-toggle {
         display: block; /* Make sure the toggle is visible on mobile */
+    }
+    
+    section {
+        padding-top: 60px; /* Adjust based on your mobile header height */
+        margin-top: -60px; /* Offset padding to keep the visual layout intact */
+        scroll-margin-top: 60px; /* Adjust based on your mobile header height */
     }
 
     nav {
@@ -263,6 +272,8 @@ section.visible > *:nth-child(3) {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 1rem 2rem; /* Add padding to header */
+        background-color: #000; /* Ensure header background is black */
     }
 
     .logo {
@@ -273,6 +284,11 @@ section.visible > *:nth-child(3) {
     nav {
         display: block;
         margin-top: 0;
+        max-height: none; /* Reset max-height for desktop view */
+        opacity: 1;
+        visibility: visible;
+        background-color: transparent;
+        transition: none; /* No transition needed in desktop view */
     }
 
     nav ul {

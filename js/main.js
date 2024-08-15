@@ -1,3 +1,31 @@
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        const header = document.querySelector('header');
+        const nav = document.querySelector('nav');
+        
+        let scrollPosition;
+        if (window.innerWidth <= 768) {
+            // Mobile view: account for expanded header height if menu is open
+            const headerHeight = nav.classList.contains('open') ? header.offsetHeight - nav.offsetHeight : header.offsetHeight;
+            scrollPosition = targetElement.offsetTop - headerHeight;
+        } else {
+            // Desktop view: account for header height
+            scrollPosition = targetElement.offsetTop - header.offsetHeight;
+        }
+
+        window.scrollTo({
+            top: scrollPosition,
+            behavior: 'smooth'
+        });
+
+        nav.classList.remove('open');
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const nav = document.querySelector('nav');
