@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/services-carousel.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/intro.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/services.css">
     <link rel="stylesheet" href="css/about-us.css">
+    <link rel="stylesheet" href="css/question.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAMAY</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>  
@@ -18,10 +23,9 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#intro">Introduction</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about-us">About</a></li>
             </ul>
         </nav>
     </header>
@@ -33,14 +37,28 @@
         </section>
 
         <section id="intro">
-            <h2 class="depth-of-field">Introduction to Our Company</h2>
-            <p class="depth-of-field">We are an innovative company focused on solving real-world problems across various sectors.</p>
+            <div class="overlay"></div>
+            <div class="carousel">
+                <div class="wrapper">
+                    <img src="https://picsum.photos/id/10/1600/900" alt="Woods">
+                    <img src="https://picsum.photos/id/11/1600/900" alt="Hills">
+                    <img src="https://picsum.photos/id/12/1600/900" alt="Beach">
+                    <img src="https://picsum.photos/id/13/1600/900" alt="Lake">
+                    
+                    <!-- Duplicates for seamless looping -->
+                    <img src="https://picsum.photos/id/10/1600/900" alt="" aria-hidden="true">
+                </div>
+            </div>
+            <div class="content">
+                <h2 class="depth-of-field">Our Vision</h2>
+                <p class="depth-of-field">At KAMAY, we envision a world where innovation and excellence drive solutions that empower communities. Our commitment is to bridge the gap between technical expertise and non-technical services, creating a seamless experience that transforms challenges into opportunities. We strive to be the go-to partner for sustainable growth, where every solution is crafted with precision and delivered with a personal touch, ensuring a brighter, more connected future for all..</p>
+            </div>
         </section>
 
         <!-- Services Section -->
         <section id="services">
+            <div class="overlay"></div>
             <h2>Our Services</h2>
-
             <!-- Technical Services Subsection -->
             <div class="technical-services" style="padding-bottom: 40px;">
                 <h3>Technical Services</h3>
@@ -120,20 +138,84 @@
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Our Projects</h2>
-            <p>Check out some of our successful projects here.</p>
-        </section>
+        <section class="projects">
+            <div class="overlay"></div>
+            <h2>Our Featured Projects</h2>
+            <p>Ideas That We Turned Into Reality</p>
+            <a href="https://forms.gle/YOUR_GOOGLE_FORM_ID" target="_blank" class="cta-button">Click Here</a>
+        
+            <div class="splide" id="project-slider">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="project">
+                                <img src="images/logo.png" alt="Project 1">
+                                <div class="project-content">
+                                    <h3>Project 1</h3>
+                                    <p>Description of Project 1. This project is an IoT-based health and environment monitoring system using the ESP32 microcontroller. It collects data from various sensors, including a DHT22 temperature and humidity sensor, an MPU6050 accelerometer and gyroscope, a GPS module, and a MAX30100 pulse oximeter, and then uploads the data to a Firebase Realtime Database for real-time monitoring.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="project">
+                                <img src="images/kibria.jpg" alt="Project 2">
+                                <div class="project-content">
+                                    <h3>Project 2</h3>
+                                    <p>Description of Project 2. Showcasing our innovative solutions.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="project">
+                                <img src="images/musadiq.jpg" alt="Project 3">
+                                <div class="project-content">
+                                    <h3>Project 3</h3>
+                                    <p>Description of Project 3. Showcasing our innovative solutions.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="project">
+                                <img src="images/rafay.jpeg" alt="Project 4">
+                                <div class="project-content">
+                                    <h3>Project 4</h3>
+                                    <p>Description of Project 4. Showcasing our innovative solutions.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="project">
+                                <img src="images/yousuf.jpg" alt="Project 5">
+                                <div class="project-content">
+                                    <h3>Project 5</h3>
+                                    <p>Description of Project 5. Showcasing our innovative solutions.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="splide__arrow splide__arrow--prev"></button>
+                    <button class="splide__arrow splide__arrow--next"></button>
+                </div>
+            </div>
+        </section>                   
 
         <section id="about-us">
             <h2>Meet Our Team</h2>
-            <p>Learn more about our team and our mission to revolutionize multiple industries.</p>
+            <p>At KAMAY, our greatest asset is our talented team of professionals. Each member brings a wealth of experience, a passion for innovation, and a commitment to excellence that drives our success.</p>
+            <p>Our team is a diverse blend of experts in various fields, dedicated to delivering top-quality solutions across both technical and non-technical domains. From seasoned engineers and IT specialists to creative real estate professionals and dynamic event planners, our collective expertise ensures that we address every challenge with insight and precision.</p>
+            <p>Here’s a glimpse of the dedicated individuals who make KAMAY exceptional:</p>
+            <img src="images/about-bg.jpg" alt="Team member image" class="team-member-blur">
             <div class="team-container">
                 <div class="team-member">
                     <img src="images/kibria.jpg" alt="Muhmmad Kibria Sajjad Satti">
                     <div class="team-member-info">
                         <h3>Muhmmad Kibria Sajjad Satti</h3>
                         <p>Musebat ki Mehbooba</p>
+                    </div>
+                    <div class="social-media">
+                        <b href="#" target="_blank"><i class="fab fa-facebook"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-instagram"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-linkedin"></i></b>
                     </div>
                 </div>
                 <div class="team-member">
@@ -142,12 +224,22 @@
                         <h3>Abdul Rafay Mughal</h3>
                         <p>Computer Keera / Womanizer</p>
                     </div>
+                    <div class="social-media">
+                        <b href="#" target="_blank"><i class="fab fa-facebook"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-instagram"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-linkedin"></i></b>
+                    </div>
                 </div>
                 <div class="team-member">
                     <img src="images/musadiq.jpg" alt="Musadiq Kaleem Khan">
                     <div class="team-member-info">
                         <h3>Musadiq Kaleem Khan</h3>
                         <p>Sasta Aashiq / Pehlwan</p>
+                    </div>
+                    <div class="social-media">
+                        <b href="#" target="_blank"><i class="fab fa-facebook"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-instagram"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-linkedin"></i></b>
                     </div>
                 </div>
                 <div class="team-member">
@@ -156,6 +248,11 @@
                         <h3>Arham Mehmood</h3>
                         <p>Suzuki Conductor</p>
                     </div>
+                    <div class="social-media">
+                        <b href="#" target="_blank"><i class="fab fa-facebook"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-instagram"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-linkedin"></i></b>
+                    </div>
                 </div>
                 <div class="team-member">
                     <img src="images/yousuf.jpg" alt="Yousuf Balala Khan">
@@ -163,7 +260,19 @@
                         <h3>Yousuf Balala Khan</h3>
                         <p>Ghalti</p>
                     </div>
+                    <div class="social-media">
+                        <b href="#" target="_blank"><i class="fab fa-facebook"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-instagram"></i></b>
+                        <b href="#" target="_blank"><i class="fab fa-linkedin"></i></b>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="question">
+            <div class="contact-button-container">
+                <h3>Have a question?</h3>
+                <a href="https://forms.gle/YOUR_GOOGLE_FORM_ID" target="_blank" class="click-here-button">Click Here</a>
             </div>
         </section>
         
@@ -177,10 +286,13 @@
             <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
+    <script src="js/projects.js"></script>
     <script src="js/services.js"></script>
 </body>
 </html>
