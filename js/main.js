@@ -3,9 +3,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('nav');
     const sections = document.querySelectorAll('section');
 
-    // Toggle navigation menu visibility
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('open'); // Use class to control visibility
+    menuToggle.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+            nav.classList.add('closing');
+            nav.addEventListener('transitionend', () => {
+                nav.classList.remove('open', 'closing');
+            }, { once: true });
+        } else {
+            nav.classList.add('open');
+        }
+    });
+
+    // Close the menu when a nav link is clicked
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            nav.classList.remove('open');
+        });
     });
 
     // Intersection Observer setup

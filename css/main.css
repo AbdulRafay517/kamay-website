@@ -16,21 +16,22 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }
-
-body {
     color: var(--text-color);
     background-color: var(--background-color);
 }
 
 header {
-    background-color: var(--background-color);
+    background-color: transparent;
     padding: 1rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: background-color 0.5s ease-in-out;
+}
+
+header.scrolled {
+    background-color: black;
 }
 
 .logo {
@@ -40,8 +41,26 @@ header {
 }
 
 nav {
-    display: none;
     margin-top: 1rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    background-color: transparent;
+    visibility: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+nav.open {
+    max-height: 500px; /* Adjust this value based on your menu's height */
+    opacity: 1;
+    background-color: #000;
+    visibility: visible;
+}
+
+nav.closing {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
 }
 
 nav ul {
@@ -156,7 +175,7 @@ footer {
     transition: color 0.5s ease-in-out;
 }
 
-.social-media a:hover {
+social-media a:hover {
     color: var(--primary-color);
 }
 
@@ -201,16 +220,26 @@ section.visible > *:nth-child(3) {
     }
 
     nav {
-        display: none; /* Hide the nav by default on mobile */
+        margin-top: 1rem;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        background-color: transparent;
+        visibility: hidden;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     }
 
     nav.open {
-        display: block; /* Show the nav when the 'open' class is applied */
+        max-height: 500px; /* Adjust this value based on your menu's height */
+        opacity: 1;
+        background-color: #000;
+        visibility: visible;
     }
-    
-    nav {
-        display: none;
-        animation: slideDown 0.5s ease-in-out forwards;
+
+    nav.closing {
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
     }
 
     @keyframes slideDown {
@@ -223,9 +252,9 @@ section.visible > *:nth-child(3) {
             opacity: 1;
         }
     }
-}        
+}
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     body {
         font-size: 18px;
     }
@@ -271,7 +300,7 @@ section.visible > *:nth-child(3) {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
-      }
+    }
 
     .services-column {
         width: 45%;
