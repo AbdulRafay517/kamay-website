@@ -195,7 +195,19 @@ section.visible > *:nth-child(3) {
     animation-delay: 0.4s;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
+    #menu-toggle {
+        display: block; /* Make sure the toggle is visible on mobile */
+    }
+
+    nav {
+        display: none; /* Hide the nav by default on mobile */
+    }
+
+    nav.open {
+        display: block; /* Show the nav when the 'open' class is applied */
+    }
+    
     nav {
         display: none;
         animation: slideDown 0.5s ease-in-out forwards;
