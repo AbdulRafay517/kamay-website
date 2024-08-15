@@ -184,7 +184,6 @@ footer {
 
 main {
     display: block;
-    padding-top: 700px; /* Ensure content is not hidden behind fixed header */
 }
 
 @keyframes slideUp {
