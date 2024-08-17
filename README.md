@@ -1,7 +1,3 @@
-Here is a suggested text for your GitHub README file for the KAMAY website:
-
----
-
 # KAMAY Website
 
 Welcome to the official repository for the KAMAY website, a comprehensive platform showcasing our diverse range of services including technical solutions like solar energy and IT, as well as non-technical fields such as real estate, event organizing, and digital marketing.
