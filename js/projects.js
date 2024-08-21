@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', function () {
         pagination: false,
         arrows: true,
         speed: 500,
+        drag: true,
+        swipeThreshold: 10,
+        dragMinThreshold: 10,
+        flickPower: 2000,
+        flickMaxPages: 1,
+        waitForTransition: true,
+        updateOnMove: true,
         breakpoints: {
             1024: {
                 perPage: 1,
@@ -16,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             768: {
                 perPage: 1,
                 arrows: false,
+                pagination: true
             },
         },
     }).mount();
