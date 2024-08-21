@@ -146,11 +146,11 @@
     border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 1000; /* Ensure it's above other elements */
-    position: fixed; /* Change to fixed positioning */
+    z-index: 1000;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
     opacity: 0.8;
 }
 
@@ -160,11 +160,13 @@
 }
 
 .splide__arrow--prev {
-    left: 2500px;
+    display: flex;
+    left: 3800px;
 }
 
 .splide__arrow--next {
-    right: 2500px;
+    display: flex;
+    right: 3800px;
 }
 
 .splide__arrow svg {
@@ -201,16 +203,24 @@
         border-radius: 0 0 10px 10px; /* Rounded bottom corners */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
+    .splide__arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+    .splide__arrow--prev {
+        left: 10px;
+    }
+    .splide__arrow--next {
+        right: 10px;
+    }
     .splide__list {
         padding-left: 0; /* Remove any padding */
         padding-right: 0;
     }
-
     .splide__slide {
         padding: 0;
     }
-
     .splide {
         padding: 0;
         overflow: hidden;
