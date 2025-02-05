@@ -59,7 +59,23 @@
     animation: gradient-border 3s linear infinite;
   }
 
+  .project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
   
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+  
+  .tech-badge {
+    transition: all 0.2s ease;
+  }
+  
+  .tech-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(var(--primary)/0.2);
+  }
 
   @keyframes gradient-border {
     0% { background-position: 0% center; }
