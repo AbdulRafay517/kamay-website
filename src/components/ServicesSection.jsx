@@ -15,7 +15,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="services" className="relative py-24 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute -top-48 left-1/3 h-[600px] w-[600px] rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl animate-pulse hidden md:block" />
       <div className="absolute -bottom-48 right-1/3 h-[600px] w-[600px] rounded-full bg-gradient-to-l from-primary/20 to-secondary/20 blur-3xl animate-pulse hidden md:block" />

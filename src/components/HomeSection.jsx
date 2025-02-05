@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function HomeSection() {
   return (
-    <motion.section 
+    <motion.section id="home"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="relative w-full pt-20 md:pt-24 lg:pt-32 min-h-[80vh] flex items-center"

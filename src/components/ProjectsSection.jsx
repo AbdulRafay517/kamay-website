@@ -48,7 +48,7 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section className="relative py-24 bg-muted/20">
+    <section id="projects" className="relative py-24 bg-muted/20">
       <div className="container px-4 md:px-6">
         <ScrollAnimation delay={0.1}>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-center mb-12">

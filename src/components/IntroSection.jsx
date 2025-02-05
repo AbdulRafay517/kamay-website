@@ -2,7 +2,7 @@ import { Users, Shield, Code, MessageCircle, Rocket, Lightbulb } from "lucide-re
 
 export default function IntroSection() {
   return (
-    <section className="relative py-24 overflow-hidden isolate">
+    <section id="about" className="relative py-24 overflow-hidden isolate">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10 opacity-15 bg-gradient-to-b from-primary/20 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-20 w-full max-w-4xl h-96 bg-gradient-radial from-primary/30 to-transparent rounded-full blur-3xl" />
