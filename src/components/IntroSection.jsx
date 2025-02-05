@@ -18,7 +18,11 @@ export default function IntroSection() {
 
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl tracking-tight">
               Transforming Vision Into
-              <span className="block mt-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="block mt-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              style={{
+                lineHeight: '1.2', // Added line height
+                paddingBottom: '0.2em' // Added padding
+              }}>
                 Digital Reality
               </span>
             </h2>
