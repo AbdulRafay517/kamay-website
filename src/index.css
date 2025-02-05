@@ -47,6 +47,25 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 0 84% 60%;  /* Matching dark primary red */
   }
+
+  .animated-border {
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--primary)),
+      hsl(var(--secondary)),
+      hsl(var(--primary))
+    );
+    background-size: 300% auto;
+    animation: gradient-border 3s linear infinite;
+  }
+
+  
+
+  @keyframes gradient-border {
+    0% { background-position: 0% center; }
+    100% { background-position: -300% center; }
+  }
+
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }

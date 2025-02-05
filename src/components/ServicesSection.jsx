@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Shield, Layout, Smartphone, PenTool, Zap, Settings, Sun } from "lucide-react";
+import { Code, Shield, Layout, Smartphone, PenTool, Zap, Settings, Sun, ArrowRight } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation"; // Reuse your scroll animation component
 
 const services = [
@@ -60,6 +60,39 @@ export default function ServicesSection() {
             </ScrollAnimation>
           ))}
         </div>
+
+        {/* Get Quote Button */}
+        <ScrollAnimation delay={0.3}>
+          <div className="mt-12 flex justify-center">
+          <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all duration-300 shadow-lg shadow-primary/20"
+                onClick={() => window.location.href = 'https://forms.gle/mVVPBbo33956PLR7A'}
+              >
+              <div className="flex items-center gap-2">
+                <span className="text-white font-semibold text-lg">
+                  Get a Free Quote
+                </span>
+                <ArrowRight className="w-5 h-5 text-white transition-transform group-hover:translate-x-1" />
+              </div>
+              
+              {/* Animated Border */}
+              <motion.div
+                className="absolute inset-0 rounded-full border-2 border-primary/30"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  borderColor: ['rgba(var(--primary)/0.3)', 'rgba(var(--secondary)/0.5)', 'rgba(var(--primary)/0.3)'],
+                  transition: {
+                    duration: 3,
+                    repeat: Infinity
+                  }
+                }}
+              />
+            </motion.button>
+          </div>
+        </ScrollAnimation>
 
         {/* Floating Icons - Responsive Positioning */}
         <motion.div 
