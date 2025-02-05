@@ -55,42 +55,6 @@ To run the website locally, follow these steps:
 
 This website can be used as a template for any business or service-oriented website. It can be customized to include more projects, modify the design, or expand the functionalities based on specific requirements.
 
-## Project Structure
-
-```
-KAMAY-Website/
-│
-├── css/
-│   ├── about-us.css
-│   ├── home.css
-│   ├── intro.css
-│   ├── main.css
-│   ├── projects.css
-│   ├── question.css
-│   └── services.css
-│
-├── gif/
-│   └── Logo_gif.gif
-│
-├── images/
-│   ├── about-bg.jpeg
-│   ├── home-bg.jpg
-│   ├── logo.png
-│   └── (other images)
-│
-├── js/
-│   ├── main.js
-│   ├── projects.js
-│   └── services.js
-│
-├── videos/
-│   ├── intro.mp4
-│   └── intro_v2.mp4
-│
-├── index.html
-└── README.md
-```
-
 ## Contributing
 
 Contributions are welcome! Please fork this repository and submit a pull request for any improvements, bug fixes, or new features.
